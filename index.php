@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Tima</h1>
-    <div id="container"></div>
+    <div class="c-skeleton">
+        <p class="c-skeleton__text">Hello Tima</p>
+    </div>
+
     <script>
         console.time('speed');
         window.onload = () => console.timeEnd('speed');

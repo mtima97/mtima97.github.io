@@ -11,12 +11,20 @@
         "@babel/core": "^7.6.3",
         "@babel/preset-env": "^7.6.3",
         "babel-loader": "^8.0.6",
+        "css-loader": "^3.2.0",
         "file-loader": "^4.2.0",
+        "image-webpack-loader": "^6.0.0",
+        "node-sass": "^4.13.0",
+        "sass-loader": "^8.0.0",
+        "style-loader": "^1.0.0",
         "webpack": "^4.41.0",
         "webpack-cli": "^3.3.9"
     },
     "browserslist": [
         "last 2 versions",
         "not dead"
-    ]
+    ],
+    "dependencies": {
+        "@itrulia/nova-skeletons": "^1.0.1"
+    }
 }

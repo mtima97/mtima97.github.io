@@ -1,5 +1,8 @@
-import {Test} from './hello';
-import chelsea from '../assets/Chelsea.png';
 import "./style.scss";
 
-Test("Alihan");
+import("./hello").then(mod => {
+    const nothing = mod.default();
+    const nothingToo = mod.useless();
+
+    console.log(`${nothing}, ${nothingToo}`);
+});

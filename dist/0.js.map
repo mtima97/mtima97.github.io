@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/hello.js"],"names":["useless"],"mappings":";;;;;;;;;;AAAA;AAAA;AAAe;AAAA,SAAM,2BAAN;AAAA,CAAf;AAEO,IAAMA,OAAO,GAAG,SAAVA,OAAU;AAAA,SAAM,mBAAN;AAAA,CAAhB,C","file":"0.js","sourcesContent":["export default () => \"The function does nothing\";\r\n\r\nexport const useless = () => \"neither this one!\";"],"sourceRoot":""}

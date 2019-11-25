@@ -7,9 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="c-skeleton">
-        <p class="c-skeleton__text">Hello Tima</p>
-    </div>
+    <h1>Hello world</h1>
 
     <script>
         console.time('speed');

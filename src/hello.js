@@ -1,3 +1,3 @@
-export function Test(name = 'Tima') {
-    console.log(`Hello ${name}.`);
-}
+export default () => "The function does nothing";
+
+export const useless = () => "neither this one!";

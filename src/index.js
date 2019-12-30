@@ -5,4 +5,6 @@ import("./hello").then(mod => {
     const nothingToo = mod.useless();
 
     console.log(`${nothing}, ${nothingToo}`);
+}, error => {
+    console.log(error.message);
 });

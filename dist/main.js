@@ -625,6 +625,8 @@ __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*!
   var nothing = mod.default();
   var nothingToo = mod.useless();
   console.log("".concat(nothing, ", ").concat(nothingToo));
+}, function (error) {
+  console.log(error.message);
 });
 
 /***/ }),

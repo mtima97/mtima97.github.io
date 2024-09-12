@@ -1,5 +1,3 @@
-FROM ubuntu:latest
+FROM node:lts-alpine
 
-LABEL authors="mtima97"
-
-ENTRYPOINT ["top", "-b"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

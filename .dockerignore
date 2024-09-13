@@ -1,4 +1,0 @@
-docker/
-.git*
-.idea/
-.dockerignore

@@ -4,10 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN addgroup -S superss && \
-    adduser -S timka -G superss && \
-    chown -R timka:superss /app
-
-USER timka
+RUN chown -R node:node /app/ \
+    && adduser node root
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]

@@ -1,5 +1,9 @@
 FROM node:lts-alpine
 
+ARG GITHUB_TOKEN
+
+ENV GITHUB_TOKEN=$GITHUB_TOKEN
+
 RUN apk add --no-cache git
 
 WORKDIR /app

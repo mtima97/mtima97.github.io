@@ -1,1 +1,9 @@
-@import "w3.css";
+@import "css/w3.css";
+
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+#app {
+	max-width: 1400px;
+}

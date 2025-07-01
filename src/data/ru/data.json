@@ -2,6 +2,13 @@
     "fullName": "Мынбай Тимур",
     "positionName": "Go разработчик",
     "headings": {
+        "contacts": "Контакты",
         "summary": "Обо мне"
-    }
+    },
+    "contacts": [
+        {
+            "label": "Email",
+            "value": "mtima97@gmail.com"
+        }
+    ]
 }

@@ -4,11 +4,10 @@ import ruLongTexts from '@/data/ru/long_texts.js'
 
 const lang = ref('ru')
 
+const ru = Object.assign({texts: ruLongTexts}, ruData)
+
 export function useContent() {
     return {
-        content: computed(() => ({
-            data: ruData,
-            long: ruLongTexts,
-        }))
+        content: computed(() => ru)
     }
 }

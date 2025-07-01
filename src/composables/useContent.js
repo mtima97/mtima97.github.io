@@ -8,6 +8,10 @@ const ru = Object.assign({texts: ruLongTexts}, ruData)
 
 export function useContent() {
     return {
-        content: computed(() => ru)
+        content: computed(() => ru),
+        setLang(l) {
+            lang.value = l
+        },
+        lang
     }
 }

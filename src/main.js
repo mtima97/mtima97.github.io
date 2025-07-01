@@ -9,4 +9,6 @@ app.config.errorHandler = err => {
     console.log('error', err)
 }
 
-app.mount('#app')
+import ConstantsPlugin from './plugins/constants.js'
+
+app.use(ConstantsPlugin).mount('#app')

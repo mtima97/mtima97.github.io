@@ -1,7 +1,7 @@
 <template>
     <div class="w3-container w3-padding w3-white w3-center">
-        <button class="w3-button w3-border w3-round w3-margin-right w3-teal">RU</button>
-        <button class="w3-button w3-border w3-round">EN</button>
+        <button class="w3-button w3-border w3-round w3-margin-right" :class="{'w3-teal': isRu}" @click="setRu">RU</button>
+        <button class="w3-button w3-border w3-round" :class="{'w3-teal': !isRu}" @click="setEn">EN</button>
     </div>
 
     <div class="w3-row-padding">
@@ -42,10 +42,22 @@
 </template>
 
 <script setup>
+import { computed, inject } from 'vue'
 import Icon from "@/components/Icon.vue";
 import { useContent } from '@/composables/useContent.js'
 
-let { content } = useContent()
+let { content, setLang, lang } = useContent()
+const $consts = inject('$consts')
+
+function setRu() {
+    setLang($consts.RU_LANG);
+}
+
+function setEn() {
+    setLang($consts.EN_LANG)
+}
+
+let isRu = computed(() => lang.value === $consts.RU_LANG)
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,7 @@
 import { computed, inject, ref } from 'vue'
+import { languages } from '@/plugins/constants.js'
 
-const language = ref('ru')
+const language = ref(languages.RU_LANG)
 
 export function useLanguage() {
     const $consts = inject('$consts')

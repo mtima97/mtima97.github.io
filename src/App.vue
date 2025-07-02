@@ -8,30 +8,23 @@
         <!-- left column -->
         <div class="w3-third">
             <div class="w3-white w3-text-grey w3-card-4">
-                <section class="w3-display-container">
-                    <img src="./assets/images/avatar.jpg" style="width: 100%" alt="avatar" />
-                    <div class="w3-display-bottomleft w3-container w3-text-white">
-                        <h2>{{ content.fullName }}</h2>
-                    </div>
-                </section>
-
+                <Avatar :firstname="data.firstname" :lastname="data.lastname" />
                 <section class="w3-container">
-                    <p><Icon fa-type="fa-briefcase" />{{ content.positionName }}</p>
+                    <p><Icon fa-type="briefcase" />{{ data.positionName }}</p>
+                    <p><Icon fa-type="home" />{{ data.residence }}</p>
+                    <p v-for="c in data.contacts">
+                        <Icon :fa-type="c.label === 'email' ? 'envelope' : 'phone'" />{{ c.value }}
+                    </p>
                     <hr>
-
-                    <p class="w3-large"><b><Icon fa-type="fa-asterisk" />Навыки</b></p>
-
-                    <p>Go</p>
-                    <div class="w3-light-grey w3-round-xlarge w3-small">
-                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width: 90%">90%</div>
-                    </div>
+                    <p class="w3-large">
+                        <b><Icon fa-type="asterisk" />{{ isRu ? 'Навыки' : 'Skills' }}</b>
+                    </p>
+                    <Skill v-for="s in data.skills" :skill="s" />
                     <br>
-
-                    <p class="w3-large w3-text-theme"><b><Icon fa-type="fa-globe" />Языки</b></p>
-                    <p>Русский</p>
-                    <div class="w3-light-grey w3-round-xlarge">
-                        <div class="w3-round-xlarge w3-teal" style="height:18px; width:100%"></div>
-                    </div>
+                    <p class="w3-large w3-text-theme">
+                        <b><Icon fa-type="globe" />{{ isRu ? 'Языки' : 'Languages' }}</b>
+                    </p>
+                    <Language v-for="l in data.languages" :language="l" />
                     <br>
                 </section>
             </div>
@@ -42,23 +35,26 @@
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
-import Icon from "@/components/Icon.vue";
-import { useContent } from '@/composables/useContent.js'
+import { inject } from 'vue'
 
-let { content, setLang, lang } = useContent()
+import { useData } from '@/composables/useData.js'
+import { useLanguage } from '@/composables/useLanguage.js'
+
+import Avatar from "@/components/Avatar.vue"
+import Icon from "@/components/Icon.vue"
+import Language from "@/components/Language.vue"
+import Skill from "@/components/Skill.vue"
+
+const { data } = useData()
+const { isRu, setLanguage } = useLanguage()
+
 const $consts = inject('$consts')
 
 function setRu() {
-    setLang($consts.RU_LANG);
+    setLanguage($consts.RU_LANG);
 }
 
 function setEn() {
-    setLang($consts.EN_LANG)
+    setLanguage($consts.EN_LANG)
 }
-
-let isRu = computed(() => lang.value === $consts.RU_LANG)
 </script>
-
-<style lang="scss" scoped>
-</style>

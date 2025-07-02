@@ -1,14 +1,28 @@
 {
-    "fullName": "Мынбай Тимур",
+    "firstname": "Тимур",
+    "lastname": "Мынбай",
     "positionName": "Go разработчик",
-    "headings": {
-        "contacts": "Контакты",
-        "summary": "Обо мне"
-    },
+    "residence": "Астана, Казахстан",
     "contacts": [
         {
-            "label": "Email",
+            "label": "email",
             "value": "mtima97@gmail.com"
+        },
+        {
+            "label": "phone",
+            "value": "+7 707 647 0854"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Docker",
+            "level": 50
+        }
+    ],
+    "languages": [
+        {
+            "name": "Русский",
+            "level": 75
         }
     ]
 }

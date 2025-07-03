@@ -30,28 +30,11 @@
         <div class="w3-twothird mtop">
             <div class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
-                    <Icon fa-type="suitcase" size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
+                    <Icon size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
                 </h2>
             </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity">
-                    <b>Backend Developer / Wildberries</b>
-                </h5>
-                <h6 class="w3-text-teal">
-                    <Icon fa-type="calendar" size="" color="" />Июнь 2022 – <span class="w3-tag w3-teal w3-round">Сейчас</span>
-                </h6>
-                <p>Разработка микросервисов, интеграция Sumsub, работа с PostgreSQL, Docker, Kafka, gRPC, очереди и API.</p>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h5 class="w3-opacity">
-                    <b>Intern / KTZ Express</b>
-                </h5>
-                <h6 class="w3-text-teal">
-                    <Icon fa-type="calendar" size="" color="" />Июль 2021 – Сентябрь 2021
-                </h6>
-                <p>Анализ закупок, построение отчетов в Power BI, автоматизация процессов анализа данных.</p>
-            </div>
+
+            <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length === i + 1" />
         </div>
     </div>
 </template>
@@ -65,6 +48,7 @@ import Icon from "@/components/Icon.vue"
 import Language from "@/components/Language.vue"
 import Skill from "@/components/Skill.vue"
 import LangSwitcher from '@/components/LangSwitcher.vue'
+import Experience from "@/components/Experience.vue"
 
 const { data } = useData()
 const { isRu } = useLanguage()

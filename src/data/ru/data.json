@@ -24,5 +24,18 @@
             "name": "Русский",
             "level": 75
         }
+    ],
+    "experience": [
+        {
+            "company": "Wildberries",
+            "role": "Go Разработчик",
+            "time": {
+                "start": "Июнь 2022",
+                "end": ""
+            },
+            "skills": [
+                "Разработка микросервисов, интеграция Sumsub, работа с PostgreSQL, Docker, Kafka, gRPC, очереди и API."
+            ]
+        }
     ]
 }

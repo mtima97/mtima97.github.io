@@ -1,30 +1,37 @@
 <template>
-    <div v-for="(exp, i) in experience" class="w3-container">
+    <div class="w3-container">
         <h5 class="w3-opacity">
-            <b>{{ exp.role }} &frasl; {{ exp.company }}</b>
+            <b>{{ role }} &frasl; {{ company }}</b>
         </h5>
         <h6 class="w3-text-teal">
-            <Icon fa-type="calendar" size="" color="" />{{ exp.time.start }} &mdash; <span :class="hasEndTime(exp.time.end)">Сейчас</span>
+            <Icon fa-type="calendar" size="" color="" />{{ period.start }} &mdash; <span v-text="endTimeTxt" :class="[period.end ? '' : classes]"></span>
         </h6>
-        <p v-for="skill in exp.skills">{{ skill }}</p>
-        <hr :hidden="experience.length === i + 1">
+        <p v-for="skill in skills">{{ skill }}</p>
+        <hr :hidden="isLast">
     </div>
 </template>
 
 <script setup>
-import Icon from '@/components/Icon.vue'
+import { computed } from 'vue'
 
-defineProps({
-    experience: Array
+import Icon from '@/components/Icon.vue'
+import { useLanguage } from '@/composables/useLanguage.js'
+
+const props = defineProps({
+    experience: Object,
+    isLast: Boolean,
 })
 
-function hasEndTime(tString) {
-    if (tString === '') {
-        return 'w3-tag w3-teal w3-round'
-    }
-    return ''
-}
-</script>
+const { isRu } = useLanguage()
+const { company, role, time: period, skills } = props.experience
 
-<style scoped lang="scss">
-</style>
+const classes = 'w3-tag w3-teal w3-round'
+
+const endTimeTxt = computed(() => {
+    if (period.end) {
+        return period.end
+    }
+
+    return isRu.value ? 'Сейчас' : 'Now'
+})
+</script>

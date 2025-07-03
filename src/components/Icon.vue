@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
     faType: {
         type: String,
         default: 'suitcase'

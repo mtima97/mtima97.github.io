@@ -27,7 +27,33 @@
             </div>
         </div>
         <!-- right column -->
-        <div class="w3-twothird"></div>
+        <div class="w3-twothird mtop">
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы
+                </h2>
+            </div>
+            <div class="w3-container">
+                <h5 class="w3-opacity">
+                    <b>Backend Developer / Wildberries</b>
+                </h5>
+                <h6 class="w3-text-teal">
+                    <i class="fa fa-calendar fa-fw w3-margin-right"></i>Июнь 2022 – <span class="w3-tag w3-teal w3-round">Сейчас</span>
+                </h6>
+                <p>Разработка микросервисов, интеграция Sumsub, работа с PostgreSQL, Docker, Kafka, gRPC, очереди и API.</p>
+                <hr>
+            </div>
+            <div class="w3-container">
+                <h5 class="w3-opacity">
+                    <b>Intern / KTZ Express</b>
+                </h5>
+                <h6 class="w3-text-teal">
+                    <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+                    Июль 2021 – Сентябрь 2021
+                </h6>
+                <p>Анализ закупок, построение отчетов в Power BI, автоматизация процессов анализа данных.</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -44,3 +70,13 @@ import LangSwitcher from '@/components/LangSwitcher.vue'
 const { data } = useData()
 const { isRu } = useLanguage()
 </script>
+
+<style scoped lang="scss">
+@use "@/assets/partials/mixins";
+
+.mtop {
+    @include mixins.mobile {
+        margin-top: 16px;
+    }
+}
+</style>

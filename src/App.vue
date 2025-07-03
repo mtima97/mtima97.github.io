@@ -1,8 +1,5 @@
 <template>
-    <div class="w3-container w3-padding w3-white w3-center">
-        <button class="w3-button w3-border w3-round w3-margin-right" :class="{'w3-teal': isRu}" @click="setRu">RU</button>
-        <button class="w3-button w3-border w3-round" :class="{'w3-teal': !isRu}" @click="setEn">EN</button>
-    </div>
+    <LangSwitcher />
 
     <div class="w3-row-padding">
         <!-- left column -->
@@ -35,8 +32,6 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
-
 import { useData } from '@/composables/useData.js'
 import { useLanguage } from '@/composables/useLanguage.js'
 
@@ -44,17 +39,8 @@ import Avatar from "@/components/Avatar.vue"
 import Icon from "@/components/Icon.vue"
 import Language from "@/components/Language.vue"
 import Skill from "@/components/Skill.vue"
+import LangSwitcher from '@/components/LangSwitcher.vue'
 
 const { data } = useData()
-const { isRu, setLanguage } = useLanguage()
-
-const $consts = inject('$consts')
-
-function setRu() {
-    setLanguage($consts.RU_LANG);
-}
-
-function setEn() {
-    setLanguage($consts.EN_LANG)
-}
+const { isRu } = useLanguage()
 </script>

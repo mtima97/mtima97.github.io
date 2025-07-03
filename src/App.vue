@@ -30,11 +30,17 @@
         <div class="w3-twothird mtop">
             <div class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
-                    <Icon size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
+                    <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
+                <p v-text="data.texts.summary"></p>
             </div>
 
-            <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length === i + 1" />
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <Icon size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
+                </h2>
+                <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length === i + 1" />
+            </div>
         </div>
     </div>
 </template>

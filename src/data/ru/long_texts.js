@@ -1,7 +1,6 @@
-const summary = `Lorem ipsum dolor sit amet
-, consectetur adipisicing elit. Adipisci animi blanditiis consectetur corporis ex
-harum necessitatibus nihil non nostrum pariatur quae, quas recusandae rem saepe veritatis? 
-Commodi ea quasi unde?`;
+const summary = `Разработчик с опытом создания микросервисов на Go, интеграций с внешними API
+и обработки больших объёмов данных. Умею находить баланс между стабильностью и скоростью, быстро
+разбираюсь в новых технологиях и бизнес-доменах.`;
 
 export default {
     summary,

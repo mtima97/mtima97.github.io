@@ -61,9 +61,15 @@
             </section>
         </div>
     </div>
+
+    <footer class="w3-container w3-center w3-padding-24 w3-small">
+        <p v-html="footerTxt"></p>
+    </footer>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 import { useData } from '@/composables/useData.js'
 import { useLanguage } from '@/composables/useLanguage.js'
 
@@ -80,6 +86,14 @@ const { data } = useData()
 const { isRu } = useLanguage()
 
 const ghLink = 'https://github.com/mtima97?tab=repositories'
+const footerTxt = computed(() => {
+    let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
+
+    if (isRu.value) {
+        return `Сделано с &#128150; на ${toolName}`
+    }
+    return `Made with &#128150; using ${toolName}`
+})
 </script>
 
 <style scoped lang="scss">

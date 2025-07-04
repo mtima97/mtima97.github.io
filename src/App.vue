@@ -32,7 +32,7 @@
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
-                <p v-text="data.texts.summary"></p>
+                <p v-text="data.texts.summary" class="summary"></p>
             </div>
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -41,6 +41,13 @@
                 </h2>
                 <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length === i + 1" />
             </div>
+
+            <section class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <Icon fa-type="graduation-cap" size="w3-xxlarge" />{{ isRu ? 'Образование' : 'Education' }}
+                </h2>
+                <Edu v-for="(edu, i) in data.education" :edu="edu" :is-hidden="i + 1 === data.education.length" />
+            </section>
         </div>
     </div>
 </template>
@@ -55,6 +62,7 @@ import Language from "@/components/Language.vue"
 import Skill from "@/components/Skill.vue"
 import LangSwitcher from '@/components/LangSwitcher.vue'
 import Experience from "@/components/Experience.vue"
+import Edu from '@/components/Edu.vue'
 
 const { data } = useData()
 const { isRu } = useLanguage()
@@ -67,5 +75,9 @@ const { isRu } = useLanguage()
     @include mixins.mobile {
         margin-top: 16px;
     }
+}
+
+.summary {
+    text-indent: 1em;
 }
 </style>

@@ -37,5 +37,17 @@
                 "Разработка микросервисов, интеграция Sumsub, работа с PostgreSQL, Docker, Kafka, gRPC, очереди и API."
             ]
         }
+    ],
+    "education": [
+        {
+            "university": "Suleyman Demirel College",
+            "duration": {
+                "start": "2013",
+                "end": "2017"
+            },
+            "achievements": [
+                "Вычислительная техника и ПО"
+            ]
+        }
     ]
 }

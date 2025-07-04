@@ -49,5 +49,17 @@
                 "Вычислительная техника и ПО"
             ]
         }
+    ],
+    "projects": [
+        {
+            "name": "Интеграция с Sumsub",
+            "descriptions": [
+                {
+                    "text": "Go, REST API, JWT, Swagger",
+                    "link": "",
+                    "linkText": ""
+                }
+            ]
+        }
     ]
 }

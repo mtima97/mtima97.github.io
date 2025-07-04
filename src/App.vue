@@ -12,6 +12,10 @@
                     <p v-for="c in data.contacts">
                         <Icon :fa-type="c.label === 'email' ? 'envelope' : 'phone'" />{{ c.value }}
                     </p>
+                    <p>
+                        <Icon fa-type="github" is-brand />
+                        <a :href="ghLink" target="_blank" class="w3-hover-opacity">github.com/mtima97</a>
+                    </p>
                     <hr>
                     <p class="w3-large">
                         <b><Icon fa-type="asterisk" size="" />{{ isRu ? 'Навыки' : 'Skills' }}</b>
@@ -39,14 +43,21 @@
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
                 </h2>
-                <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length === i + 1" />
+                <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length - 1 === i" />
             </div>
 
             <section class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="graduation-cap" size="w3-xxlarge" />{{ isRu ? 'Образование' : 'Education' }}
                 </h2>
-                <Edu v-for="(edu, i) in data.education" :edu="edu" :is-hidden="i + 1 === data.education.length" />
+                <Edu v-for="(edu, i) in data.education" :edu="edu" :is-hidden="data.education.length - 1 === i" />
+            </section>
+
+            <section class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <Icon fa-type="code" size="w3-xxlarge" />{{ isRu ? 'Проекты' : 'Projects' }}
+                </h2>
+                <Project v-for="(p, i) in data.projects" :project="p" :is-hidden="data.projects.length - 1 === i" />
             </section>
         </div>
     </div>
@@ -63,9 +74,12 @@ import Skill from "@/components/Skill.vue"
 import LangSwitcher from '@/components/LangSwitcher.vue'
 import Experience from "@/components/Experience.vue"
 import Edu from '@/components/Edu.vue'
+import Project from '@/components/Project.vue'
 
 const { data } = useData()
 const { isRu } = useLanguage()
+
+const ghLink = 'https://github.com/mtima97?tab=repositories'
 </script>
 
 <style scoped lang="scss">

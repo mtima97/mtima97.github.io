@@ -1,5 +1,5 @@
 <template>
-    <i :class="['fa', `fa-${faType}`, 'fa-fw', 'w3-margin-right', size, color]"></i>
+    <i :class="[isBrand ? 'fab' : 'fa', `fa-${faType}`, 'fa-fw', 'w3-margin-right', size, color]"></i>
 </template>
 
 <script setup>
@@ -15,6 +15,10 @@ defineProps({
     color: {
         type: String,
         default: 'w3-text-teal'
+    },
+    isBrand: {
+        type: Boolean,
+        default: false
     }
 })
 </script>

@@ -7,14 +7,22 @@
             <div class="w3-white w3-text-grey w3-card-4">
                 <Avatar :firstname="data.firstname" :lastname="data.lastname" />
                 <section class="w3-container">
-                    <p><Icon fa-type="briefcase" />{{ data.positionName }}</p>
-                    <p><Icon fa-type="home" />{{ data.residence }}</p>
-                    <p v-for="c in data.contacts">
-                        <Icon :fa-type="c.label === 'email' ? 'envelope' : 'phone'" />{{ c.value }}
+                    <p><Icon fa-type="briefcase" :text="data.positionName" /></p>
+                    <p><Icon fa-type="home" :text="data.residence" /></p>
+                    <p>
+                        <a :href="`tel:${data.contacts.phone.replace(/\s+/g, '')}`" target="_blank" rel="noopener" class="w3-hover-opacity">
+                            <Icon fa-type="phone" :text="data.contacts.phone" />
+                        </a>
                     </p>
                     <p>
-                        <Icon fa-type="github" is-brand />
-                        <a :href="ghLink" target="_blank" class="w3-hover-opacity">github.com/mtima97</a>
+                        <a :href="`mailto:${data.contacts.email}`" target="_blank" rel="noopener" class="w3-hover-opacity">
+                            <Icon fa-type="envelope" :text="data.contacts.email" />
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://github.com/mtima97?tab=repositories" target="_blank" rel="noopener" class="w3-hover-opacity">
+                            <Icon fa-type="github" is-brand text="github.com/mtima97" />
+                        </a>
                     </p>
                     <hr>
                     <p class="w3-large">
@@ -85,7 +93,6 @@ import Project from '@/components/Project.vue'
 const { data } = useData()
 const { isRu } = useLanguage()
 
-const ghLink = 'https://github.com/mtima97?tab=repositories'
 const footerTxt = computed(() => {
     let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
 

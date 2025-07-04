@@ -3,16 +3,10 @@
     "lastname": "Мынбай",
     "positionName": "Go разработчик",
     "residence": "Астана, Казахстан",
-    "contacts": [
-        {
-            "label": "email",
-            "value": "mtima97@gmail.com"
-        },
-        {
-            "label": "phone",
-            "value": "+7 707 647 0854"
-        }
-    ],
+    "contacts": {
+        "email": "mtima97@gmail.com",
+        "phone": "+7 707 647 0854"
+    },
     "skills": [
         {
             "name": "Docker",

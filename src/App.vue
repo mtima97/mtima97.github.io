@@ -9,21 +9,7 @@
                 <section class="w3-container">
                     <p><Icon fa-type="briefcase" :text="data.positionName" /></p>
                     <p><Icon fa-type="home" :text="data.residence" /></p>
-                    <p>
-                        <a :href="`tel:${data.contacts.phone.replace(/\s+/g, '')}`" target="_blank" rel="noopener" class="w3-hover-opacity">
-                            <Icon fa-type="phone" :text="data.contacts.phone" />
-                        </a>
-                    </p>
-                    <p>
-                        <a :href="`mailto:${data.contacts.email}`" target="_blank" rel="noopener" class="w3-hover-opacity">
-                            <Icon fa-type="envelope" :text="data.contacts.email" />
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/mtima97?tab=repositories" target="_blank" rel="noopener" class="w3-hover-opacity">
-                            <Icon fa-type="github" is-brand text="github.com/mtima97" />
-                        </a>
-                    </p>
+                    <Links :contacts="data.contacts" />
                     <hr>
                     <p class="w3-large">
                         <b><Icon fa-type="asterisk" size="" />{{ isRu ? 'Навыки' : 'Skills' }}</b>
@@ -45,6 +31,7 @@
                     <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
                 <p v-text="data.texts.summary" class="summary"></p>
+                <p v-text="data.texts.summaryVue" class="summary"></p>
             </div>
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -61,7 +48,7 @@
                 <Edu v-for="(edu, i) in data.education" :edu="edu" :is-hidden="data.education.length - 1 === i" />
             </section>
 
-            <section class="w3-container w3-card w3-white w3-margin-bottom">
+            <section class="w3-container w3-card w3-white">
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="code" size="w3-xxlarge" />{{ isRu ? 'Проекты' : 'Projects' }}
                 </h2>
@@ -89,6 +76,7 @@ import LangSwitcher from '@/components/LangSwitcher.vue'
 import Experience from "@/components/Experience.vue"
 import Edu from '@/components/Edu.vue'
 import Project from '@/components/Project.vue'
+import Links from '@/components/Links.vue'
 
 const { data } = useData()
 const { isRu } = useLanguage()

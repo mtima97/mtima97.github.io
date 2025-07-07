@@ -83,11 +83,12 @@ const { isRu } = useLanguage()
 
 const footerTxt = computed(() => {
     let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
+    let heart = '&#128150;'
 
     if (isRu.value) {
-        return `Сделано с &#128150; на ${toolName}`
+        return `Сделано с ${heart} на ${toolName}`
     }
-    return `Made with &#128150; using ${toolName}`
+    return `Made with ${heart} using ${toolName}`
 })
 </script>
 

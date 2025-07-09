@@ -25,21 +25,21 @@
             </div>
         </div>
         <!-- right column -->
-        <div class="w3-twothird mtop">
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <div class="w3-twothird w3-animate-opacity mtop">
+            <section class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
                 <p v-text="data.texts.summary" class="summary"></p>
                 <p v-text="data.texts.summaryVue" class="summary"></p>
-            </div>
+            </section>
 
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <section class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon size="w3-xxlarge" />{{ isRu ? 'Опыт работы' : 'Experience' }}
                 </h2>
                 <Experience v-for="(exp, i) in data.experience" :experience="exp" :is-last="data.experience.length - 1 === i" />
-            </div>
+            </section>
 
             <section class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
@@ -58,7 +58,7 @@
     </div>
 
     <footer class="w3-container w3-center w3-padding-24 w3-small">
-        <p v-html="footerTxt"></p>
+        <p class="w3-animate-fading" v-html="footerTxt"></p>
     </footer>
 </template>
 

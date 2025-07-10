@@ -32,12 +32,17 @@ const items = computed(() => {
             link: 'https://github.com/mtima97?tab=repositories',
             itype: 'github',
             text: 'github.com/mtima97'
+        },
+        {
+            link: 'https://www.linkedin.com/in/tmyngbay-230397/',
+            itype: 'linkedin',
+            text: 'LinkedIn (tmyngbay-230397)'
         }
     ]
 })
 
 function isBrand(typeName) {
-    const brands = ['github']
+    const brands = ['github', 'linkedin']
 
     return brands.includes(typeName)
 }

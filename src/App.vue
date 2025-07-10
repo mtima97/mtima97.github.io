@@ -48,11 +48,25 @@
                 <Edu v-for="(edu, i) in data.education" :edu="edu" :is-hidden="data.education.length - 1 === i" />
             </section>
 
-            <section class="w3-container w3-card w3-white">
+            <section class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="code" size="w3-xxlarge" />{{ isRu ? 'Проекты' : 'Projects' }}
                 </h2>
                 <Project v-for="(p, i) in data.projects" :project="p" :is-hidden="data.projects.length - 1 === i" />
+            </section>
+
+            <section class="w3-container w3-card w3-white">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <Icon fa-type="bolt" size="w3-xxlarge" />{{ isRu ? 'Активность' : 'Activity' }}
+                </h2>
+                <iframe
+                    class="w3-round"
+                    height="460"
+                    width="100%"
+                    allowtransparency="true"
+                    src="https://www.strava.com/athletes/103079022/latest-rides/a145ef42e2f96636a7cb7c9d88f3bab5362ca340"
+                    style="border: none; overflow: hidden;"
+                ></iframe>
             </section>
         </div>
     </div>

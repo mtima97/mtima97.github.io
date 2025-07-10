@@ -10,6 +10,7 @@
                     <p><Icon fa-type="briefcase" :text="data.positionName" /></p>
                     <p><Icon fa-type="home" :text="data.residence" /></p>
                     <Links :contacts="data.contacts" />
+                    <p class="w3-animate-fading" ><Icon fa-type="dollar-sign" :text="data.salary.expectation" /></p>
                     <hr>
                     <p class="w3-large">
                         <b><Icon fa-type="asterisk" size="" />{{ isRu ? 'Навыки' : 'Skills' }}</b>
@@ -31,7 +32,8 @@
                     <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
                 <p v-text="data.texts.summary" class="summary"></p>
-                <p v-text="data.texts.summaryVue" class="summary"></p>
+                <p v-html="data.texts.summaryVue" class="summary"></p>
+                <p v-html="data.texts.runText" class="summary"></p>
             </section>
 
             <section class="w3-container w3-card w3-white w3-margin-bottom">
@@ -58,7 +60,7 @@
     </div>
 
     <footer class="w3-container w3-center w3-padding-24 w3-small">
-        <p class="w3-animate-fading" v-html="footerTxt"></p>
+        <p v-html="footerTxt"></p>
     </footer>
 </template>
 

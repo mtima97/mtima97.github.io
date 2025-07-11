@@ -4,7 +4,7 @@
             <b>{{ role }} &frasl; {{ company }}</b>
         </h5>
         <h6 class="w3-text-teal">
-            <Icon fa-type="calendar" size="" color="" />{{ period.start }} &mdash; <span v-text="endTimeTxt" :class="[period.end ? '' : classes]"></span>
+            <Icon fa-type="calendar" size="" color="" />{{ duration.start }} &mdash; <span v-text="endTimeTxt" :class="[duration.end ? '' : classes]"></span>
         </h6>
         <p v-for="skill in skills">{{ skill }}</p>
         <hr :hidden="isLast">
@@ -23,13 +23,13 @@ const props = defineProps({
 })
 
 const { isRu } = useLanguage()
-const { company, role, time: period, skills } = props.experience
+const { company, role, duration, skills } = props.experience
 
 const classes = 'w3-tag w3-teal w3-round'
 
 const endTimeTxt = computed(() => {
-    if (period.end) {
-        return period.end
+    if (duration.end) {
+        return duration.end
     }
 
     return isRu.value ? 'Сейчас' : 'Now'

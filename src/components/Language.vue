@@ -1,5 +1,5 @@
 <template>
-    <p v-text="lname"></p>
+    <p v-text="language.name"></p>
     <div ref="box" class="w3-light-grey w3-round-xlarge">
         <div class="w3-round-xlarge w3-teal" :style="lstyle"></div>
     </div>
@@ -12,13 +12,14 @@ const props = defineProps({
     language: Object,
 })
 
-const {name: lname, level} = props.language
+let { level } = props.language
 
 const box = ref(null)
-const lwidth = ref(0)
+const wdh = ref(0)
+
 const lstyle = computed(() => {
     return {
-        width: lwidth.value > 0 ? `${lwidth.value}%` : 0,
+        width: wdh.value > 0 ? `${wdh.value}%` : 0,
         height: '18px',
     }
 })
@@ -26,7 +27,7 @@ const lstyle = computed(() => {
 const callback = entries => {
     for (const entry of entries) {
         if (entry.isIntersecting) {
-            lwidth.value = level
+            wdh.value = level
             observer.unobserve(box.value)
         }
     }

@@ -1,10 +1,12 @@
 <template>
     <div class="w3-container">
-        <h5 class="w3-opacity"><b v-text="university"></b></h5>
+        <h5 class="w3-opacity">
+            <b v-text="edu.university"></b>
+        </h5>
         <h6 class="w3-text-teal">
             <Icon fa-type="calendar" size="" color="" /><span v-html="studyPeriodHtml"></span>
         </h6>
-        <p v-for="a in achievements">{{ a }}</p>
+        <p v-for="achv in edu.achievements">{{ achv }}</p>
         <hr :hidden="isHidden">
     </div>
 </template>
@@ -14,12 +16,14 @@ import { computed } from 'vue'
 
 import Icon from '@/components/Icon.vue'
 
-const { edu } = defineProps({
+const props = defineProps({
     edu: Object,
     isHidden: Boolean,
 })
 
-const { university, duration, achievements } = edu
+const studyPeriodHtml = computed(() => {
+    let d = props.edu.duration
 
-const studyPeriodHtml = computed(() => `${duration.start} &mdash; ${duration.end}`)
+    return `${d.start} &mdash; ${d.end}`
+})
 </script>

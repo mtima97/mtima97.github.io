@@ -8,15 +8,16 @@
 
 <script setup>
 import { computed } from 'vue'
+
 import Icon from '@/components/Icon.vue'
 
 const props = defineProps({
     contacts: Object
 })
 
-const { email, phone } = props.contacts
-
 const items = computed(() => {
+    const { phone, email } = props.contacts
+
     return [
         {
             link: `tel:${phone.replace(/\s+/g, '')}`,

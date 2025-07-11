@@ -43,18 +43,18 @@
                 "end": "2017"
             },
             "achievements": [
-                "ВТ и ПО"
+                "Вычислительная техника и программное обеспечение"
             ]
         }
     ],
     "projects": [
         {
-            "name": "Интеграция с Sumsub",
+            "name": "Пример реализации микросервисной архитектуры",
             "descriptions": [
                 {
                     "text": "Go, REST API, JWT, Swagger",
-                    "link": "",
-                    "linkText": ""
+                    "link": "https://github.com/mtima97/light-ms",
+                    "linkText": "Смотреть на GitHub"
                 }
             ]
         }

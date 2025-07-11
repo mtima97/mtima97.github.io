@@ -31,7 +31,7 @@
                 <h2 class="w3-text-grey w3-padding-16">
                     <Icon fa-type="user" size="w3-xxlarge" />{{ isRu ? 'Обо мне' : 'About Me' }}
                 </h2>
-                <p v-text="data.texts.summary" class="summary"></p>
+                <p v-html="data.texts.summary" class="summary"></p>
                 <p v-html="data.texts.summaryVue" class="summary"></p>
                 <p v-html="data.texts.runText" class="summary"></p>
             </section>

@@ -1,7 +1,7 @@
 <template>
     <p>
         <Icon fa-type="dollar-sign" />
-        <CountUp :duration="4" :end-val="sum" :options="counterOpts" />
+        <CountUp :key="text" :duration="4" :end-val="sum" :options="counterOpts" />
     </p>
 </template>
 
@@ -18,6 +18,7 @@ const props = defineProps({
 const counterOpts = computed(() => ({
     enableScrollSpy: true,
     scrollSpyDelay: 500,
+    scrollSpyOnce: true,
     prefix: '$',
     suffix: ` ${props.text}`,
     separator: ' ',

@@ -20,6 +20,7 @@ const level = toRef(props.skill, 'level')
 
 const countUpOptions = {
     enableScrollSpy: true,
+    scrollSpyOnce: true,
     suffix: '&#37;'
 }
 </script>

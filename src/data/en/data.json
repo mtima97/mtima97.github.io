@@ -1,14 +1,14 @@
 {
-    "firstname": "Тимур",
-    "lastname": "Мынбай",
-    "positionName": "Go разработчик",
-    "residence": "Астана, Казахстан",
+    "firstname": "Timur",
+    "lastname": "Myngbay",
+    "positionName": "Go Developer",
+    "residence": "Astana, Kazakhstan",
     "contacts": {
         "email": "mtima97@gmail.com",
         "phone": "+7 707 647 0854"
     },
     "salary": {
-        "expectation": "$4.800 в месяц (на руки)"
+        "expectation": "$4.800 month (net)"
     },
     "skills": [
         {
@@ -18,20 +18,20 @@
     ],
     "languages": [
         {
-            "name": "Русский",
+            "name": "Russian",
             "level": 75
         }
     ],
     "experience": [
         {
             "company": "Wildberries",
-            "role": "Go Разработчик",
+            "role": "Go Developer",
             "duration": {
-                "start": "Январь 2024",
+                "start": "January 2024",
                 "end": ""
             },
             "skills": [
-                "Сбор и анализ метрик с помощью Prometheus с последующей визуализацией данных в Grafana."
+                "Collecting and analyzing metrics using Prometheus with subsequent data visualization in Grafana."
             ]
         }
     ],
@@ -43,18 +43,18 @@
                 "end": "2017"
             },
             "achievements": [
-                "Вычислительная техника и программное обеспечение"
+                "Computer Engineering and Software"
             ]
         }
     ],
     "projects": [
         {
-            "name": "Пример реализации микросервисной архитектуры",
+            "name": "Example of Microservices Architecture Implementation",
             "descriptions": [
                 {
                     "text": "Go, REST API, JWT, Swagger",
                     "link": "https://github.com/mtima97/light-ms",
-                    "linkText": "Смотреть на GitHub"
+                    "linkText": "View on GitHub"
                 }
             ]
         }

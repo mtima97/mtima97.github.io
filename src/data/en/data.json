@@ -8,7 +8,8 @@
         "phone": "+7 707 647 0854"
     },
     "salary": {
-        "expectation": "$4.800 month (net)"
+        "expectation": 4800,
+        "text": "per month (net)"
     },
     "skills": [
         {

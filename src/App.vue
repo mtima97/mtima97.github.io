@@ -10,7 +10,7 @@
                     <p><Icon fa-type="briefcase" :text="data.positionName" /></p>
                     <p><Icon fa-type="home" :text="data.residence" /></p>
                     <Links :contacts="data.contacts" />
-                    <p class="w3-animate-fading" ><Icon fa-type="dollar-sign" :text="data.salary.expectation" /></p>
+                    <Salary :sum="data.salary.expectation" :text="data.salary.text" />
                     <hr>
                     <p class="w3-large">
                         <b><Icon fa-type="asterisk" size="" />{{ isRu ? 'Навыки' : 'Skills' }}</b>
@@ -79,6 +79,7 @@ import Experience from "@/components/Experience.vue"
 import Edu from '@/components/Edu.vue'
 import Project from '@/components/Project.vue'
 import Links from '@/components/Links.vue'
+import Salary from '@/components/Salary.vue'
 
 const { data } = useData()
 const { isRu } = useLanguage()

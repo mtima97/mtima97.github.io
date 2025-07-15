@@ -3,3 +3,7 @@
 		@content;
 	}
 }
+
+@mixin transitionable($duration, $delay) {
+	transition: width #{$duration} linear #{$delay};
+}

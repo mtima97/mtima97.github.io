@@ -6,7 +6,8 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useObserver } from '@/composables/useObserver.js'
 
 const props = defineProps({
     language: Object,
@@ -24,30 +25,17 @@ const lstyle = computed(() => {
     }
 })
 
-const callback = entries => {
-    for (const entry of entries) {
-        if (entry.isIntersecting) {
-            wdh.value = level
-            observer.unobserve(box.value)
-        }
-    }
-}
-
-const observer = new IntersectionObserver(callback, {
-    threshold: 0.5,
+useObserver(box, function (intersects) {
+	if (intersects && wdh.value === 0) {
+		wdh.value = level
+	}
 })
-
-onMounted(() => {
-    if (box.value) {
-        observer.observe(box.value)
-    }
-})
-
-onBeforeUnmount(() => observer.disconnect())
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/partials/mixins";
+
 div > div {
-    transition: width .8s ease-out .4s;
+    @include mixins.transitionable(2.5s, .2s)
 }
 </style>

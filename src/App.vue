@@ -1,5 +1,5 @@
 <template>
-    <LangSwitcher />
+	<LangSwitcher />
 
     <div class="w3-row-padding">
         <!-- left column -->
@@ -60,7 +60,7 @@
     </div>
 
     <footer class="w3-container w3-center w3-padding-24 w3-small">
-        <p v-html="footerTxt"></p>
+		<p v-html="footerTxt"></p>
     </footer>
 </template>
 
@@ -70,12 +70,12 @@ import { computed } from 'vue'
 import { useData } from '@/composables/useData.js'
 import { useLanguage } from '@/composables/useLanguage.js'
 
-import Avatar from "@/components/Avatar.vue"
-import Icon from "@/components/Icon.vue"
-import Language from "@/components/Language.vue"
-import Skill from "@/components/Skill.vue"
+import Avatar from '@/components/Avatar.vue'
+import Icon from '@/components/Icon.vue'
+import Language from '@/components/Language.vue'
+import Skill from '@/components/Skill.vue'
 import LangSwitcher from '@/components/LangSwitcher.vue'
-import Experience from "@/components/Experience.vue"
+import Experience from '@/components/Experience.vue'
 import Edu from '@/components/Edu.vue'
 import Project from '@/components/Project.vue'
 import Links from '@/components/Links.vue'
@@ -85,13 +85,13 @@ const { data } = useData()
 const { isRu } = useLanguage()
 
 const footerTxt = computed(() => {
-    let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
-    let heart = '&#128150;'
+	let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
+	let heart = '&#128150;'
 
-    if (isRu.value) {
-        return `Сделано с ${heart} на ${toolName}`
-    }
-    return `Made with ${heart} using ${toolName}`
+	if (isRu.value) {
+		return `Сделано с ${heart} на ${toolName}`
+	}
+	return `Made with ${heart} using ${toolName}`
 })
 </script>
 
@@ -99,12 +99,12 @@ const footerTxt = computed(() => {
 @use "@/assets/partials/mixins";
 
 .mtop {
-    @include mixins.mobile {
-        margin-top: 16px;
-    }
+	@include mixins.mobile {
+		margin-top: 1em;
+	}
 }
 
 .summary {
-    text-indent: 1em;
+	text-indent: 1em;
 }
 </style>

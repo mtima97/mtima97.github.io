@@ -1,14 +1,16 @@
 <template>
-    <div class="w3-container w3-center">
-        <div class="w3-bar">
-            <button class="w3-button w3-bar-item w3-hover-none" :class="{'active-btn': isRu}" @click="setRu">
-                <b v-text="languages.ru"></b>
-            </button>
+    <div class="w3-container w3-section">
+		<div class="center-block">
+			<div class="w3-bar">
+				<button class="w3-button w3-hover-none" :class="{'active-btn': isRu}" @click="setRu">
+					<b v-text="languages.ru"></b>
+				</button>
 
-            <button class="w3-button w3-bar-item w3-hover-none" :class="{'active-btn': !isRu}" @click="setEn">
-                <b v-text="languages.en"></b>
-            </button>
-        </div>
+				<button class="w3-button w3-hover-none" :class="{'active-btn': !isRu}" @click="setEn">
+					<b v-text="languages.en"></b>
+				</button>
+			</div>
+		</div>
     </div>
 </template>
 

@@ -59,14 +59,10 @@
         </div>
     </div>
 
-    <footer class="w3-container w3-center w3-padding-24 w3-small">
-		<p v-html="footerTxt"></p>
-    </footer>
+    <Footer />
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 import { useData } from '@/composables/useData.js'
 import { useLanguage } from '@/composables/useLanguage.js'
 
@@ -80,19 +76,10 @@ import Edu from '@/components/Edu.vue'
 import Project from '@/components/Project.vue'
 import Links from '@/components/Links.vue'
 import Salary from '@/components/Salary.vue'
+import Footer from '@/components/Footer.vue'
 
 const { data } = useData()
 const { isRu } = useLanguage()
-
-const footerTxt = computed(() => {
-	let toolName = '<span class="w3-text-teal"><strong>W3.CSS</strong></span>'
-	let heart = '&#128150;'
-
-	if (isRu.value) {
-		return `Сделано с ${heart} на ${toolName}`
-	}
-	return `Made with ${heart} using ${toolName}`
-})
 </script>
 
 <style scoped lang="scss">

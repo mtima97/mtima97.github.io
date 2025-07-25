@@ -31,7 +31,9 @@ footer {
 	perspective: 1000px;
 
 	& > p {
-		animation: txtrotation 2s linear infinite;
+		@media (orientation: portrait), (min-width: 1200px) {
+			animation: txtrotation 2s linear infinite;
+		}
 	}
 }
 </style>

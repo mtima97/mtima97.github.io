@@ -12,8 +12,10 @@
         "deploy": "npm run build && gh-pages -d dist -r https://mtima97:$GITHUB_TOKEN@github.com/mtima97/mtima97.github.io.git -x"
     },
     "dependencies": {
-        "vue": "^3.4.29",
-        "vue-countup-v3": "^1.4.2"
+        "html2pdf.js": "^0.12.1",
+        "lodash": "^4.17.21",
+        "pinia": "^3.0.3",
+        "vue": "^3.4.29"
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.8.0",

@@ -1,14 +1,18 @@
+@use "sass:map";
+
+$breakpoints: (
+	mobile: 600px,
+);
+
 @import "css/w3.css";
 
-body {
-	font-family: 'Roboto', sans-serif !important;
-	font-size: 16px !important;
-}
+@media screen and (max-width: map.get($breakpoints, mobile)) {
+	h1.w3-xxlarge {
+		font-size: 24px;
+	}
 
-.countup-wrap {
-	display: inline-block;
-}
-
-.center-block {
-	text-align: center !important;
+	.w3-container {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
 }

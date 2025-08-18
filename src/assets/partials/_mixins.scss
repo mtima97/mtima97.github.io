@@ -1,9 +1,0 @@
-@mixin mobile {
-	@media (max-width: 575.98px) {
-		@content;
-	}
-}
-
-@mixin transitionable($duration, $delay) {
-	transition: width #{$duration} linear #{$delay};
-}

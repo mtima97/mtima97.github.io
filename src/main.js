@@ -1,14 +1,13 @@
-import './assets/main.scss'
-
+import { createPinia } from 'pinia'
 import { createApp } from 'vue'
+import './assets/main.scss'
 import App from './App.vue'
 
 const app = createApp(App)
+const pinia = createPinia()
 
-app.config.errorHandler = err => {
-    console.log('error', err)
+app.config.errorHandler = (err, instance, info) => {
+	console.error('vue error', err, info)
 }
 
-import ConstantsPlugin from './plugins/constants.js'
-
-app.use(ConstantsPlugin).mount('#app')
+app.use(pinia).mount('#app')

@@ -1,6 +1,6 @@
 <template>
     <header class="w3-container w3-padding-16 w3-border-bottom w3-margin-bottom">
-        <h1 class="w3-xxlarge">{{ h.fullName }}</h1>
+        <h1 class="w3-xxlarge">{{ h.full_name }}</h1>
 
         <p :class="['w3-medium', h.position ? '' : 'header__info--invisible']">
             <span>{{ h.position }}</span>
@@ -14,7 +14,7 @@
 import { storeToRefs } from 'pinia'
 import { useCvStore }  from '@/stores/cv.js'
 
-const { headerView: h } = storeToRefs(useCvStore())
+const { header: h } = storeToRefs(useCvStore())
 </script>
 
 <style scoped lang="scss">

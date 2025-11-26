@@ -1,12 +1,12 @@
 <template>
     <section class="w3-container w3-margin-bottom">
-        <h3 class="w3-medium w3-border-bottom w3-padding-small">
-            {{ isRu ? 'Проекты' : 'Projects' }}
-        </h3>
+        <h3 id="projects" class="w3-medium w3-border-bottom w3-padding-small">{{ headers('projects') }}</h3>
 
-        <div v-for="(project, i) in projectsView" :key="i" class="w3-margin-bottom">
+        <div v-for="(project, i) in projects" :key="i" class="w3-margin-bottom">
             <p class="w3-medium w3-margin-bottom">
-                <strong>{{ project.name }}</strong>
+				<a :href="project.link" target="_blank">
+					<strong>{{ project.name }}</strong>
+				</a>
             </p>
 
             <ul class="w3-ul">
@@ -18,11 +18,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useLanguageStore } from '@/stores/language.js'
-import { useCvStore } from '@/stores/cv.js'
+import { useCvStore  } from '@/stores/cv.js'
 
-const { isRu } = storeToRefs(useLanguageStore())
-const { projectsView } = storeToRefs(useCvStore())
+const { projects, headers } = storeToRefs(useCvStore())
 </script>
-
-<style scoped lang="scss"></style>

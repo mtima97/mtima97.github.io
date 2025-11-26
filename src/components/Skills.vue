@@ -1,25 +1,27 @@
 <template>
     <section class="w3-container w3-margin-bottom">
-        <h3 class="w3-medium w3-border-bottom w3-padding-small">
-            {{ isRu ? 'Навыки' : 'Skills' }}
-        </h3>
+        <h3 class="w3-medium w3-border-bottom w3-padding-small">{{ headers('skills') }}</h3>
 
-        <ul class="w3-ul">
-            <li v-for="(skill, i) in skillsView" :key="i">
+        <div class="w3-container container">
+            <span v-for="(skill, i) in skills" :key="i" class="w3-small w3-padding w3-border w3-round">
                 {{ skill.name }}
-            </li>
-        </ul>
+            </span>
+        </div>
     </section>
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useCvStore  } from '@/stores/cv'
 
-import { useLanguageStore } from '@/stores/language'
-import { useCvStore } from '@/stores/cv'
-
-const { isRu } = storeToRefs(useLanguageStore())
-const { skillsView } = storeToRefs(useCvStore())
+const { skills, headers } = storeToRefs(useCvStore())
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped>
+.container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+</style>

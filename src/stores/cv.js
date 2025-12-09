@@ -7,7 +7,8 @@ import { useLanguageStore } from '@/stores/language.js'
 export const useCvStore = defineStore('cv', {
     state: () => ({
         cvEn: {},
-        cvRu: {}
+        cvRu: {},
+		isLoading: false,
     }),
     getters: {
         cv(state) {
@@ -127,13 +128,15 @@ export const useCvStore = defineStore('cv', {
             if (!_.isNil(sessionStorage.getItem(key))) {
                 this.fill(JSON.parse(sessionStorage.getItem(key)), Ls.language)
             } else {
+				this.isLoading = true
+
                 let h = 'https://tmyngbay-cv.up.railway.app'
 
                 fetch(`${h}/api/v2/cv?lang=${Ls.language}`)
                     .then(res => res.json())
-                    .then(data => {
-                        this.fill(_.get(data, 'data'), Ls.language, key)
-                    })
+                    .then(data => this.fill(_.get(data, 'data'), Ls.language, key))
+					.catch(err => console.log(err))
+					.finally(() => this.isLoading = false)
 			}
 
 			Ls.pushToLoaded()

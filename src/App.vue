@@ -1,5 +1,7 @@
 <template>
-	<div class="w3-content">
+	<Loader v-if="cv.isLoading" />
+
+	<div v-else class="w3-content">
         <Switcher @switch="loadPage" />
 
         <div id="resume">
@@ -32,6 +34,7 @@ import Summary from '@/components/Summary.vue'
 import DownloadBtn from '@/components/DownloadBtn.vue'
 import Switcher from '@/components/Switcher.vue'
 import Languages from "@/components/Languages.vue";
+import Loader from "@/components/Loader.vue";
 
 const cv = useCvStore()
 

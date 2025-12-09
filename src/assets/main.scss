@@ -1,12 +1,7 @@
 @use "sass:map";
+@use "base";
 
-$breakpoints: (
-	mobile: 600px,
-);
-
-@import "css/w3.css";
-
-@media screen and (max-width: map.get($breakpoints, mobile)) {
+@media screen and (max-width: map.get(base.$breakpoints, mobile)) {
 	h1.w3-xxlarge {
 		font-size: 24px;
 	}
@@ -16,3 +11,5 @@ $breakpoints: (
 		padding-right: 8px;
 	}
 }
+
+@import "css/w3.css";

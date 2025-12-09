@@ -62,9 +62,11 @@ export const useCvStore = defineStore('cv', {
             }))
         },
 		summary() {
+			const salary = _.get(this.cv, 'profile.salary', 0)
+
 			return {
                 text:       _.get(this.cv, 'profile.summary', ''),
-                salary:     _.get(this.cv, 'profile.salary', 0),
+                salary:     new Intl.NumberFormat().format(salary),
                 salary_sfx: _.get(this.cv, 'profile.salary_sfx', ''),
             }
 		},
@@ -93,6 +95,7 @@ export const useCvStore = defineStore('cv', {
         },
         skills() {
             return _.get(this.cv, 'profile.key_skills', [])
+                .toSorted((a, b) => a.order - b.order)
         },
         education() {
             return _.get(this.cv, 'education', []).map(ed => ({

@@ -18,10 +18,17 @@ const { skills, headers } = storeToRefs(useCvStore())
 </script>
 
 <style lang="scss" scoped>
+@use "sass:map";
+@use "@/assets/base";
+
 .container {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
     padding-left: 0;
+
+    @media screen and (max-width: map.get(base.$breakpoints, mobile)) {
+        flex-direction: column;
+    }
 }
 </style>

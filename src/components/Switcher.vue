@@ -1,7 +1,16 @@
 <template>
     <div class="w3-right w3-margin-top w3-margin-bottom">
-        <button :class="ruBtnClasses" @click.prevent="setRu">RU</button>
-        <button :class="enBtnClasses" @click.prevent="setEn">EN</button>
+        <button
+            :class="[clicked[0], 'w3-button', 'w3-small']"
+            @click.prevent="updateLanguage('ru')"
+            v-text="txts[0]"
+        ></button>
+
+        <button
+            :class="[clicked[1], 'w3-button', 'w3-small']"
+            @click.prevent="updateLanguage('en')"
+            v-text="txts[1]"
+        ></button>
     </div>
 </template>
 
@@ -14,25 +23,28 @@ const store = useLanguageStore()
 
 const { isRu } = storeToRefs(store)
 
-const ruBtnClasses = computed(() => {
-    return `w3-button ${isRu.value ? 'w3-black' : 'w3-light-grey'} w3-small`
+const clicked = computed(() => {
+    if (isRu.value) {
+        return ['w3-black', 'w3-light-grey']
+    }
+
+    return ['w3-light-grey', 'w3-black']
 })
 
-const enBtnClasses = computed(() => {
-    return `w3-button ${!isRu.value ? 'w3-black' : 'w3-light-grey'} w3-small`
-})
+const txts = ['RU', 'EN']
 
 const emit = defineEmits(['switch'])
 
-function setRu() {
-	store.setLanguageRu()
-	emit('switch')
-}
+function updateLanguage(language) {
+	switch (language) {
+		case 'en':
+			store.setLanguageEn()
+			break
+		case 'ru':
+			store.setLanguageRu()
+			break
+	}
 
-function setEn() {
-	store.setLanguageEn()
 	emit('switch')
 }
 </script>
-
-<style scoped lang="scss"></style>

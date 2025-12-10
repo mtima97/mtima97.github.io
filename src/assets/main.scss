@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "base";
+@use "css/w3.css";
 
 @media screen and (max-width: map.get(base.$breakpoints, mobile)) {
 	h1.w3-xxlarge {
@@ -10,6 +11,16 @@
 		padding-left: 8px;
 		padding-right: 8px;
 	}
-}
 
-@import "css/w3.css";
+	button {
+		&.w3-black:hover {
+			background-color: #000 !important;
+			color: #fff !important;
+		}
+
+		&.w3-light-grey:hover {
+			background-color: #f1f1f1 !important;
+			color: #000 !important;
+		}
+	}
+}

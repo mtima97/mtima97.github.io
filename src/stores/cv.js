@@ -1,8 +1,10 @@
-import _ from 'lodash'
+import { get as _get, isNil as _isNil } from 'lodash'
 import { defineStore } from 'pinia'
 import { LANG } from '@/constants/lang.js'
 import { getDtFallback } from '@/utils/base.js'
 import { useLanguageStore } from '@/stores/language.js'
+
+import { toast } from 'vue3-toastify'
 
 export const useCvStore = defineStore('cv', {
     state: () => ({
@@ -54,66 +56,66 @@ export const useCvStore = defineStore('cv', {
         experience() {
             const isRu = useLanguageStore().isRu
 
-            return _.get(this.cv, 'experience', []).map(item => ({
-                position: _.get(item, 'position'),
-                company:  _.get(item, 'company'),
+            return _get(this.cv, 'experience', []).map(item => ({
+                position: _get(item, 'position'),
+                company:  _get(item, 'company'),
                 period:   `${item.start_dt} &mdash; ${getDtFallback(item.end_dt, isRu)}`,
-                location: _.get(item, 'location'),
-                achiev:   _.get(item, 'achiev', [])
+                location: _get(item, 'location'),
+                achiev:   _get(item, 'achiev', [])
             }))
         },
 		summary() {
-			const salary = _.get(this.cv, 'profile.salary', 0)
+			const salary = _get(this.cv, 'profile.salary', 0)
 
 			return {
-                text:       _.get(this.cv, 'profile.summary', ''),
+                text:       _get(this.cv, 'profile.summary', ''),
                 salary:     new Intl.NumberFormat().format(salary),
-                salary_sfx: _.get(this.cv, 'profile.salary_sfx', ''),
+                salary_sfx: _get(this.cv, 'profile.salary_sfx', ''),
             }
 		},
         header() {
-            const position = _.get(this.experience, '0.position')
-            const company  = _.get(this.experience, '0.company')
+            const position = _get(this.experience, '0.position')
+            const company  = _get(this.experience, '0.company')
 
             return {
-                full_name: _.get(this.cv, 'profile.full_name'),
+                full_name: _get(this.cv, 'profile.full_name'),
                 position:  position,
                 company:   company,
-                residence: _.get(this.cv, 'profile.residence'),
+                residence: _get(this.cv, 'profile.residence'),
             }
         },
         contacts() {
             return [
                 {
-                    value: _.get(this.cv, 'profile.email'),
+                    value: _get(this.cv, 'profile.email'),
                     key:   'email',
                 },
                 {
-                    value: _.get(this.cv, 'profile.phone'),
+                    value: _get(this.cv, 'profile.phone'),
                     key:   'phone',
                 }
             ]
         },
         skills() {
-            return _.get(this.cv, 'profile.key_skills', [])
+            return _get(this.cv, 'profile.key_skills', [])
                 .toSorted((a, b) => a.order - b.order)
         },
         education() {
-            return _.get(this.cv, 'education', []).map(ed => ({
-                university: _.get(ed, 'university'),
-                points:     _.get(ed, 'achiev', []),
+            return _get(this.cv, 'education', []).map(ed => ({
+                university: _get(ed, 'university'),
+                points:     _get(ed, 'achiev', []),
                 period:     `${ed.start_dt} &mdash; ${ed.end_dt}`,
             }))
         },
         projects() {
-            return _.get(this.cv, 'projects', []).map(p => ({
-                name:   _.get(p, 'name'),
-                points: _.get(p, 'points', []),
-				link:   _.get(p, 'link'),
+            return _get(this.cv, 'projects', []).map(p => ({
+                name:   _get(p, 'name'),
+                points: _get(p, 'points', []),
+				link:   _get(p, 'link'),
             }))
         },
 		languages() {
-			return _.get(this.cv, 'languages', [])
+			return _get(this.cv, 'languages', [])
 		}
     },
     actions: {
@@ -125,7 +127,7 @@ export const useCvStore = defineStore('cv', {
 				return
 			}
 
-            if (!_.isNil(sessionStorage.getItem(key))) {
+            if (!_isNil(sessionStorage.getItem(key))) {
                 this.fill(JSON.parse(sessionStorage.getItem(key)), Ls.language)
             } else {
 				this.isLoading = true
@@ -134,19 +136,19 @@ export const useCvStore = defineStore('cv', {
 
                 fetch(`${h}/api/v2/cv?lang=${Ls.language}`)
                     .then(res => res.json())
-                    .then(data => this.fill(_.get(data, 'data'), Ls.language, key))
-					.catch(err => console.log(err))
+                    .then(data => this.fill(_get(data, 'data'), Ls.language, key))
+					.catch(err => toast.error(`${err?.name}: ${err?.message}`))
 					.finally(() => this.isLoading = false)
 			}
 
 			Ls.pushToLoaded()
         },
         fill(data, language, key = '') {
-            if (_.isNil(data)) {
+            if (_isNil(data)) {
                 return
             }
 
-            if (key.length > 0 && _.isNil(sessionStorage.getItem(key))) {
+            if (key.length > 0 && _isNil(sessionStorage.getItem(key))) {
                 sessionStorage.setItem(key, JSON.stringify(data))
             }
 

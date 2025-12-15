@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "base";
 @use "css/w3.css";
+@use "vue3-toastify/dist/index.css";
 
 @media screen and (max-width: map.get(base.$breakpoints, mobile)) {
 	h1.w3-xxlarge {

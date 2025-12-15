@@ -44,6 +44,3 @@ function loadPage() {
 
 onBeforeMount(() => loadPage())
 </script>
-
-<style scoped lang="scss">
-</style>

@@ -15,7 +15,8 @@
         "html2pdf.js": "^0.12.1",
         "lodash": "^4.17.21",
         "pinia": "^3.0.3",
-        "vue": "^3.4.29"
+        "vue": "^3.4.29",
+        "vue3-toastify": "^0.2.8"
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.8.0",

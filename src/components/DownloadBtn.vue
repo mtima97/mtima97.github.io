@@ -19,7 +19,7 @@ function download() {
 
 	const options = {
 		margin: 10,
-		filename: 'resume.pdf',
+		filename: 'timur_myngbay.pdf',
 		image: {
 			type: 'jpeg',
 			quality: 0.98

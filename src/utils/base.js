@@ -1,7 +1,7 @@
-import _ from 'lodash'
+import { isNil } from 'lodash'
 
 function getDtFallback(dateStr, isRu) {
-    if (_.isNil(dateStr)) {
+    if (isNil(dateStr)) {
         return isRu ? 'наст.время' : 'now';
     }
 

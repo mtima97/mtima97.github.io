@@ -1,6 +1,6 @@
 <template>
     <div class="w3-center w3-margin-top w3-margin-bottom w3-hide-small">
-        <button class="w3-button w3-black" @click="download">
+        <button class="w3-button w3-black" @click="download" v-track data-event="download">
             {{ isRu ? 'Скачать PDF' : 'Download PDF' }}
         </button>
     </div>
@@ -41,5 +41,3 @@ function download() {
 		.save('resume-timur.pdf')
 }
 </script>
-
-<style scoped lang="scss"></style>

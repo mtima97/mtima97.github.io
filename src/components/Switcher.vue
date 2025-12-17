@@ -4,12 +4,16 @@
             :class="[clicked[0], 'w3-button', 'w3-small']"
             @click.prevent="updateLanguage('ru')"
             v-text="txts[0]"
+            v-track
+            data-event="click_ru"
         ></button>
 
         <button
             :class="[clicked[1], 'w3-button', 'w3-small']"
             @click.prevent="updateLanguage('en')"
             v-text="txts[1]"
+            v-track
+            data-event="click_en"
         ></button>
     </div>
 </template>

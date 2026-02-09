@@ -1,3 +1,3 @@
-export const api = Object.freeze({
+export default Object.freeze({
     base_url: 'https://tmyngbay-cv.up.railway.app',
 })

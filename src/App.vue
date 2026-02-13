@@ -2,8 +2,7 @@
     <Loader v-if="cvStore.loading" />
 
 	<div v-else class="w3-content">
-        <!--<Switcher @switch="loadPage" />-->
-        <LangSwitcher />
+        <Switcher />
 
         <!--<div id="resume">
             <Header />
@@ -26,7 +25,7 @@ import { useCvStore } from '@/stores/cv_v2.js'
 
 const cvStore = useCvStore()
 
-import LangSwitcher from '@/components/LangSwitcher.vue'
+import Switcher from '@/components/Switcher.vue'
 import Resume from '@/components/resume/Resume.vue'
 import Loader from '@/components/ui/Loader.vue'
 </script>

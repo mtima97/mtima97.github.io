@@ -9,8 +9,8 @@ const cvStore = useCvStore()
     <header class="w3-container w3-padding-16 w3-border-bottom w3-margin-bottom">
         <h1 class="w3-xxlarge">{{ cvStore.cv?.profile?.full_name }}</h1>
 
-        <p class="w3-medium" :class="{'header__info--invisible': !cvStore.hasPosition}">
-            <span>{{ get(cvStore.cv, 'experience.0.position') }}</span>
+        <p class="w3-medium" :class="{'header__info--invisible': cvStore.position !== ''}">
+            <span>{{ cvStore.position }}</span>
             <span> &middot; {{ get(cvStore.cv, 'experience.0.company') }}</span>
             <span> &middot; {{ cvStore.cv?.profile?.residence }}</span>
         </p>

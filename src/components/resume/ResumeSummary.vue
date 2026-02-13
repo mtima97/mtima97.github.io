@@ -14,6 +14,10 @@ const languageStore = useLanguageStore()
         </h3>
 
         <p class="w3-small">{{ get(cvStore.cv, 'profile.summary') }}</p>
+
+        <p class="w3-small w3-text-grey">
+            {{ cvStore.finance.salary }} {{ cvStore.finance.salary_sfx }}
+        </p>
     </section>
 </template>
 

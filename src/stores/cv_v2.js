@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import conf from '@/config/api.js'
 import cache from '@/utils/cache'
+import { formatSalary } from '@/utils/numbers.js'
 import { get } from 'lodash'
 
 export const useCvStore = defineStore('mycv', {
@@ -9,8 +10,14 @@ export const useCvStore = defineStore('mycv', {
         loading: false,
     }),
     getters: {
-        hasPosition(state) {
-            return get(state.cv, 'experience.0.position', '') !== ''
+        position(state) {
+            return get(state.cv, 'experience.0.position', '')
+        },
+        finance(state) {
+            return {
+                salary: formatSalary(get(state.cv, 'profile.salary', 0)),
+                salary_sfx: get(state.cv, 'profile.salary_sfx'),
+            }
         }
     },
     actions: {

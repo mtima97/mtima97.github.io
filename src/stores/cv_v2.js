@@ -13,6 +13,12 @@ export const useCvStore = defineStore('mycv', {
         position(state) {
             return get(state.cv, 'experience.0.position', '')
         },
+        email(state) {
+            return get(state.cv, 'profile.email')
+        },
+        phone(state) {
+            return get(state.cv, 'profile.phone')
+        },
         finance(state) {
             return {
                 salary: formatSalary(get(state.cv, 'profile.salary', 0)),

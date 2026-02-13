@@ -1,12 +1,18 @@
 import { defineStore } from 'pinia'
 import conf from '@/config/api.js'
 import cache from '@/utils/cache'
+import { get } from 'lodash'
 
 export const useCvStore = defineStore('mycv', {
     state: () => ({
         cv: null,
         loading: false,
     }),
+    getters: {
+        hasPosition(state) {
+            return get(state.cv, 'experience.0.position', '') !== ''
+        }
+    },
     actions: {
         load(language) {
             if (cache.exists(`cv:${language}`)) {

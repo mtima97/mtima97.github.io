@@ -1,7 +1,8 @@
 <template>
 	<!--<Loader v-if="cv.isLoading" />-->
+    <Loader v-if="cvStore.loading" />
 
-	<div class="w3-content">
+	<div v-else class="w3-content">
         <!--<Switcher @switch="loadPage" />-->
         <LangSwitcher />
 
@@ -22,6 +23,9 @@
 </template>
 
 <script setup>
+import { useCvStore } from '@/stores/cv_v2.js'
+
+const cvStore = useCvStore()
 
 import Header from '@/components/Header.vue'
 import Contacts from '@/components/Contacts.vue'
@@ -33,7 +37,7 @@ import Summary from '@/components/Summary.vue'
 import DownloadBtn from '@/components/DownloadBtn.vue'
 import Switcher from '@/components/Switcher.vue'
 import Languages from "@/components/Languages.vue";
-import Loader from "@/components/Loader.vue";
 import LangSwitcher from '@/components/LangSwitcher.vue'
 import Resume from '@/components/resume/Resume.vue'
+import Loader from '@/components/ui/Loader.vue'
 </script>

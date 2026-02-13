@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getInitialLanguage, LANGUAGES } from '@/utils/languages.js'
+import { getInitialLanguage, LANGUAGES, saveLanguage } from '@/utils/languages.js'
 import { useCvStore } from '@/stores/cv_v2.js'
 
 export const useLanguageStore = defineStore('language', {
@@ -16,12 +16,16 @@ export const useLanguageStore = defineStore('language', {
         setLanguage(v) {
             this.language = v
 
+            this.cacheTheLanguage()
             this.updateCV()
         },
         updateCV() {
             let cvStore = useCvStore()
 
             cvStore.load(this.language)
+        },
+        cacheTheLanguage() {
+            saveLanguage(this.language)
         }
     }
 })

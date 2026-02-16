@@ -6,7 +6,7 @@
 
         <Resume />
 
-        <!--<DownloadBtn />-->
+        <DownloadButton />
     </div>
 </template>
 
@@ -18,4 +18,5 @@ const cvStore = useCvStore()
 import Switcher from '@/components/Switcher.vue'
 import Resume from '@/components/resume/Resume.vue'
 import Loader from '@/components/ui/Loader.vue'
+import DownloadButton from '@/components/DownloadButton.vue'
 </script>

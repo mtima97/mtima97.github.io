@@ -1,7 +1,7 @@
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { toast } from 'vue3-toastify'
-import { collectMetrics } from '@/utils/base.js'
+import track from '@/utils/analytics.js'
 
 import '@/assets/main.scss'
 
@@ -17,11 +17,15 @@ app.config.errorHandler = (err, instance, info) => {
 app
     .use(pinia)
     .directive('track', {
-        mounted(el) {
-            el.addEventListener('click', collectMetrics)
+        mounted(el, binding) {
+            el.addEventListener('click', function (event) {
+                track(binding.value, event.target?.innerText)
+            })
         },
-        unmounted(el) {
-            el.removeEventListener('click', collectMetrics)
+        unmounted(el, binding) {
+            el.removeEventListener('click', function(event) {
+                track(binding.value, event.target?.innerText)
+            })
         }
     })
     .mount('#app')

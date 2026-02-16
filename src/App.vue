@@ -4,16 +4,6 @@
 	<div v-else class="w3-content">
         <Switcher />
 
-        <!--<div id="resume">
-            <Header />
-            <Summary />
-            <Contacts />
-            <Skills />
-			<Languages />
-            <Exp />
-            <Education />
-            <Projects />
-        </div>-->
         <Resume />
 
         <!--<DownloadBtn />-->

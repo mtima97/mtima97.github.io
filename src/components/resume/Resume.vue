@@ -5,6 +5,7 @@ import ResumeContacts from '@/components/resume/ResumeContacts.vue'
 import ResumeSkills from '@/components/resume/ResumeSkills.vue'
 import ResumeLanguages from '@/components/resume/ResumeLanguages.vue'
 import ResumeExperience from '@/components/resume/ResumeExperience.vue'
+import ResumeEducation from '@/components/resume/ResumeEducation.vue'
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import ResumeExperience from '@/components/resume/ResumeExperience.vue'
         <ResumeSkills />
         <ResumeLanguages />
         <ResumeExperience />
+        <ResumeEducation />
         <!-- Exp, Education, Projects -->
     </div>
 </template>

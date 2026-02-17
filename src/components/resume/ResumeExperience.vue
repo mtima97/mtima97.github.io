@@ -15,6 +15,8 @@ const fallbackTxt1 = computed(() => {
 const fallbackTxt2 = computed(() => {
     return languageStore.isRu ? 'профиле LinkedIn' : 'LinkedIn profile'
 })
+
+import { normalizeDateString } from '@/utils/numbers.js'
 </script>
 
 <template>
@@ -29,7 +31,7 @@ const fallbackTxt2 = computed(() => {
             </p>
 
             <p class="w3-small w3-text-grey w3-margin-bottom">
-                {{ e.start_dt }} &mdash; {{ e.end_dt ?? languageStore.isRu ? 'наст.время' : 'now' }} &middot; {{ e.location }}
+                {{ normalizeDateString(e.start_dt) }} &mdash; {{ normalizeDateString(e.end_dt) ?? languageStore.isRu ? 'наст.время' : 'now' }} &middot; {{ e.location }}
             </p>
 
             <ul class="w3-ul">

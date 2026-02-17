@@ -4,6 +4,8 @@ import { useLanguageStore } from '@/stores/language_v2.js'
 
 const languageStore = useLanguageStore()
 const cvStore = useCvStore()
+
+import { normalizeDateString } from '@/utils/numbers.js'
 </script>
 
 <template>
@@ -18,7 +20,7 @@ const cvStore = useCvStore()
             </p>
 
             <p class="w3-small w3-text-grey w3-margin-bottom">
-                {{ e.start_dt }} &mdash; {{ e.end_dt }}
+                {{ normalizeDateString(e.start_dt) }} &mdash; {{ normalizeDateString(e.end_dt) }}
             </p>
 
             <ul class="w3-ul">

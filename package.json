@@ -12,8 +12,8 @@
         "deploy": "npm run build && gh-pages -d dist -r https://mtima97:$GITHUB_TOKEN@github.com/mtima97/mtima97.github.io.git -x"
     },
     "dependencies": {
-        "html2pdf.js": "^0.12.1",
-        "lodash": "^4.17.21",
+        "html2pdf.js": "0.14.0",
+        "lodash": "4.17.23",
         "pinia": "^3.0.3",
         "vue": "^3.4.29",
         "vue3-toastify": "^0.2.8"
@@ -22,7 +22,7 @@
         "@rushstack/eslint-patch": "^1.8.0",
         "@vitejs/plugin-vue": "^5.2.4",
         "@vue/eslint-config-prettier": "^9.0.0",
-        "eslint": "^8.57.0",
+        "eslint": "^9.39.2",
         "eslint-plugin-vue": "^9.23.0",
         "gh-pages": "^6.1.1",
         "prettier": "^3.2.5",

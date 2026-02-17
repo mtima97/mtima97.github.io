@@ -1,54 +1,43 @@
+<script setup>
+import { useLanguageStore } from '@/stores/language_v2.js'
+import { onBeforeMount } from 'vue'
+import { LANGUAGES } from '@/utils/languages.js'
+import { toast } from 'vue3-toastify'
+
+const languageStore = useLanguageStore()
+
+onBeforeMount(() => {
+    languageStore.setDefault()
+})
+
+function updateLanguage(event) {
+    let language = event.target.textContent
+
+    if (language.toLowerCase() === languageStore.language) {
+        return
+    }
+
+    switch (language) {
+        case 'RU':
+            languageStore.setLanguage(LANGUAGES.RU)
+            break
+        case 'EN':
+            languageStore.setLanguage(LANGUAGES.EN)
+            break
+        default:
+            toast.error('invalid language')
+    }
+}
+
+const metrics = ['click_ru', 'click_en']
+</script>
+
 <template>
     <div class="w3-right w3-margin-top w3-margin-bottom">
-        <button
-            :class="[clicked[0], 'w3-button', 'w3-small']"
-            @click.prevent="updateLanguage('ru')"
-            v-text="txts[0]"
-            v-track
-            data-event="click_ru"
-        ></button>
+        <button class="w3-button w3-small" :class="languageStore.isRu ? 'w3-black' : 'w3-light-grey'" @click="updateLanguage" v-track="metrics[0]">RU</button>
 
-        <button
-            :class="[clicked[1], 'w3-button', 'w3-small']"
-            @click.prevent="updateLanguage('en')"
-            v-text="txts[1]"
-            v-track
-            data-event="click_en"
-        ></button>
+        <button class="w3-button w3-small" :class="languageStore.isRu ? 'w3-light-grey' : 'w3-black'" @click="updateLanguage" v-track="metrics[1]">EN</button>
     </div>
 </template>
 
-<script setup>
-import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { useLanguageStore } from '@/stores/language.js'
-
-const store = useLanguageStore()
-
-const { isRu } = storeToRefs(store)
-
-const clicked = computed(() => {
-    if (isRu.value) {
-        return ['w3-black', 'w3-light-grey']
-    }
-
-    return ['w3-light-grey', 'w3-black']
-})
-
-const txts = ['RU', 'EN']
-
-const emit = defineEmits(['switch'])
-
-function updateLanguage(language) {
-	switch (language) {
-		case 'en':
-			store.setLanguageEn()
-			break
-		case 'ru':
-			store.setLanguageRu()
-			break
-	}
-
-	emit('switch')
-}
-</script>
+<style scoped lang="scss"></style>

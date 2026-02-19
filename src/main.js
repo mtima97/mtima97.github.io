@@ -1,7 +1,7 @@
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { toast } from 'vue3-toastify'
-import track from '@/utils/analytics.js'
+import { trackEvent } from '@/utils/analytics_v2.js'
 
 import '@/assets/main.scss'
 
@@ -18,14 +18,14 @@ app
     .use(pinia)
     .directive('track', {
         mounted(el, binding) {
-            el.addEventListener('click', function (event) {
-                track(binding.value, event.target?.innerText)
-            })
+            if (typeof binding.value === 'string') {
+                el.dataset.event = binding.value
+            }
+
+            el.addEventListener('click', trackEvent)
         },
-        unmounted(el, binding) {
-            el.removeEventListener('click', function(event) {
-                track(binding.value, event.target?.innerText)
-            })
+        unmounted(el) {
+            el.removeEventListener('click', trackEvent)
         }
     })
     .mount('#app')
